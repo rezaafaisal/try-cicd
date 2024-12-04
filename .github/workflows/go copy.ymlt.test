@@ -23,12 +23,23 @@ jobs:
       # - name: Build
       #   run: go build -v ./...
 
+      # - name: Setup SSH
+      #   run: |
+      #     install -m 600 -D /dev/null ~/.ssh/id_rsa
+      #     echo "${{ secrets.SSH_PRIVATE_KEY }}" > ~/.ssh/id_rsa
+      #     ssh-keyscan -H ${{ secrets.SSH_HOST }} > ~/.ssh/known_hosts
+
+      # - name: connect and pull
+      #   run: ssh ${{ secrets.SSH_USERNAME }}@${{ secrets.SSH_HOST }}:${{ secrets.SSH_PORT }} "cd ${{ secrets.SSH_REPO_PATH }} && git checkout main && git pull && exit"
+      # - name: cleanup
+      #   run: rm -rf ~/.ssh
+
       - name: executing remote ssh commands using password
         uses: appleboy/ssh-action@master
         with:
           host: ${{ secrets.SSH_HOST }}
           username: ${{ secrets.SSH_USERNAME }}
-          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          password: ${{ secrets.SSH_PRIVATE_KEY }}
           port: ${{ secrets.SSH_PORT }}
           script: |
             cd ${{ secrets.SSH_REPO_PATH }}
