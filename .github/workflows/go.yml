@@ -31,6 +31,5 @@ jobs:
             cd ${{ secrets.SSH_REPO_PATH }}
             git checkout main
             git pull origin main
-
-      - name: Build
-        run: cd /var/www/try-cicd && go build main.go
+            pwd
+            go version
