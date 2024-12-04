@@ -26,4 +26,5 @@ jobs:
             cd ${{ secrets.SSH_REPO_PATH }}
             git checkout main
             git pull origin main
-            pwd
+            export PATH=$PATH:/usr/local/go/bin
+            go version
