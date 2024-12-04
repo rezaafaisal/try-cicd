@@ -19,7 +19,7 @@ jobs:
         uses: actions/setup-go@v4
         with:
           go-version: "1.23.3"
-          
+
       - name: executing remote ssh commands using password
         uses: appleboy/ssh-action@master
         with:
@@ -33,4 +33,4 @@ jobs:
             git pull origin main
 
       - name: Build
-        run: go build -v ./...
+        run: go build main.go
