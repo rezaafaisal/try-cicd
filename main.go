@@ -9,7 +9,7 @@ func index(w http.ResponseWriter, r *http.Request) {
 
 func main() {
     http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
-        fmt.Fprintln(w, "halo! dunia hehe")
+        fmt.Fprintln(w, "halo! dunia hehe awokaokw")
     })
 
     http.HandleFunc("/index", index)
