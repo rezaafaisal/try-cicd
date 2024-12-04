@@ -31,6 +31,4 @@ jobs:
             cd ${{ secrets.SSH_REPO_PATH }}
             git checkout main
             git pull origin main
-
-      - name: Build
-        run: go build main.go
+            go build -o main .
