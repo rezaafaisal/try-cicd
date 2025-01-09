@@ -14,6 +14,6 @@ func main() {
 
     http.HandleFunc("/index", index)
 
-    fmt.Println("starting web server at http://localhost:8080/")
-    http.ListenAndServe(":8080", nil)
+    fmt.Println("starting web server at http://localhost:6100/")
+    http.ListenAndServe(":6100", nil)
 }
